@@ -28,14 +28,11 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
 
-      - name: Install Newman
-        run: npm install -g newman
-
       - name: Install Newman and Newman HTML Reporter
         run: npm install -g newman newman-reporter-html
 
       - name: Create reports directory
-        run: mkdir -p postman-tests/reports
+        run: mkdir -p reports
 
       - name: Run Newman tests
-        run: newman run apis_test.json -r cli,json,html --reporter-json-export reports/report.json --reporter-html-export reports/report.html
+        run: newman run apis_test.json -r cli,html  --reporter-html-export reports/report.html
