@@ -35,7 +35,7 @@ jobs:
         run: npm install -g newman newman-reporter-html
 
       - name: Create reports directory
-        run: mkdir -p reports
+        run: mkdir -p postman-tests/reports
 
       - name: Run Newman tests
         run: newman run apis_test.json -r cli,json,html --reporter-json-export reports/report.json --reporter-html-export reports/report.html
